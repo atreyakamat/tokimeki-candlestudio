@@ -35,7 +35,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="py-12 md:py-24 max-w-3xl mx-auto">
+    <div className="py-12 md:py-24 max-w-3xl mx-auto px-4 w-full flex-grow">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

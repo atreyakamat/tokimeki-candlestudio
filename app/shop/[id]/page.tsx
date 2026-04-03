@@ -47,7 +47,7 @@ export default async function ProductDetail({ params }: { params: Promise<{ id: 
   };
 
   return (
-    <div className="py-12 md:py-24 max-w-6xl mx-auto">
+    <div className="py-12 md:py-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-grow">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

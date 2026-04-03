@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <div className="py-12 md:py-24 max-w-4xl mx-auto text-center space-y-16">
+    <div className="py-12 md:py-24 max-w-4xl mx-auto px-4 text-center space-y-16 w-full flex-grow">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

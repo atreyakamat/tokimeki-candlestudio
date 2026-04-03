@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import SakuraPetals from "@/components/SakuraPetals";
 
+import Footer from "@/components/Footer";
+
 const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: '--font-playfair' });
 
@@ -38,9 +40,10 @@ export default function RootLayout({
       <body className={`${inter.variable} ${playfair.variable} font-sans bg-cream text-charcoal relative`}>
         <SakuraPetals />
         <Navbar />
-        <main className="min-h-screen pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
+        <main className="min-h-screen pt-24 relative z-10 flex flex-col">
           {children}
         </main>
+        <Footer />
       </body>
     </html>
   );
