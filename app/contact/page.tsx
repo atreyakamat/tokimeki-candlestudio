@@ -1,9 +1,38 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function Contact() {
   const whatsappUrl = "https://wa.me/1234567890";
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("loading");
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) throw new Error();
+      
+      setStatus("success");
+      (e.target as HTMLFormElement).reset();
+    } catch {
+      setStatus("error");
+    }
+  };
 
   return (
     <div className="py-12 md:py-24 max-w-3xl mx-auto">
@@ -51,12 +80,14 @@ export default function Contact() {
             </div>
           </div>
 
-          <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="name" className="block text-sm uppercase tracking-widest text-maroon/80 mb-2">Name</label>
               <input 
                 type="text" 
                 id="name" 
+                name="name"
+                required
                 className="w-full bg-cream/50 border border-maroon/20 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-maroon/30 transition-all"
                 placeholder="Your Name"
               />
@@ -66,6 +97,8 @@ export default function Contact() {
               <input 
                 type="email" 
                 id="email" 
+                name="email"
+                required
                 className="w-full bg-cream/50 border border-maroon/20 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-maroon/30 transition-all"
                 placeholder="Your Email"
               />
@@ -74,14 +107,27 @@ export default function Contact() {
               <label htmlFor="message" className="block text-sm uppercase tracking-widest text-maroon/80 mb-2">Message</label>
               <textarea 
                 id="message" 
+                name="message"
+                required
                 rows={4}
                 className="w-full bg-cream/50 border border-maroon/20 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-maroon/30 transition-all resize-none"
                 placeholder="How can we help?"
               />
             </div>
-            <button className="w-full bg-charcoal text-cream px-8 py-4 rounded-full uppercase tracking-widest text-sm hover:bg-charcoal/90 transition-all hover:shadow-lg">
-              Send Message
+            <button 
+              type="submit"
+              disabled={status === "loading"}
+              className="w-full bg-charcoal text-cream px-8 py-4 rounded-full uppercase tracking-widest text-sm hover:bg-charcoal/90 transition-all hover:shadow-lg disabled:opacity-70"
+            >
+              {status === "loading" ? "Sending..." : "Send Message"}
             </button>
+            
+            {status === "success" && (
+              <p className="text-sm text-green-700 text-center">Thank you! Your message has been sent.</p>
+            )}
+            {status === "error" && (
+              <p className="text-sm text-red-600 text-center">Failed to send message. Please try again.</p>
+            )}
           </form>
         </div>
       </motion.div>
