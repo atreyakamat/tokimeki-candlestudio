@@ -3,8 +3,9 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import SakuraPetals from "@/components/SakuraPetals";
-
 import Footer from "@/components/Footer";
+import SmoothScroll from "@/components/SmoothScroll";
+import CustomCursor from "@/components/CustomCursor";
 
 const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: '--font-playfair' });
@@ -37,13 +38,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${playfair.variable} font-sans bg-cream text-charcoal relative`}>
-        <SakuraPetals />
-        <Navbar />
-        <main className="min-h-screen pt-24 relative z-10 flex flex-col">
-          {children}
-        </main>
-        <Footer />
+      <body className={`${inter.variable} ${playfair.variable} font-sans bg-cream text-charcoal relative overflow-x-hidden`}>
+        <CustomCursor />
+        <SmoothScroll>
+          <SakuraPetals />
+          <Navbar />
+          <main className="min-h-screen pt-24 relative z-10 flex flex-col">
+            {children}
+          </main>
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );
