@@ -1,0 +1,56 @@
+[
+  {
+    "id": "1",
+    "name": "Sakura Blossom",
+    "price": 35,
+    "description": "A delicate blend of cherry blossom, white tea, and subtle hints of sweet vanilla. Perfect for bringing the gentle spirit of spring into your home.",
+    "category": "Floral",
+    "image": "/images/imgi_11_654227810_17862788127609330_2396577824032935626_n.jpg",
+    "notes": ["Cherry Blossom", "White Tea", "Vanilla"]
+  },
+  {
+    "id": "2",
+    "name": "Matcha Morning",
+    "price": 32,
+    "description": "Earthy, calming, and softly sweet. Our Matcha Morning candle combines the aroma of roasted green tea with warm milk and a touch of honey.",
+    "category": "Earthy",
+    "image": "/images/imgi_12_651047085_17862008775609330_6623949851815042306_n.jpg",
+    "notes": ["Matcha", "Steamed Milk", "Honey"]
+  },
+  {
+    "id": "3",
+    "name": "Yuzu Citrus",
+    "price": 30,
+    "description": "Bright, uplifting, and refreshing. The crisp scent of Japanese yuzu citrus paired with sparkling grapefruit and a hint of mint.",
+    "category": "Citrus",
+    "image": "/images/imgi_13_649225897_17861701380609330_1756392186006754656_n.jpg",
+    "notes": ["Yuzu", "Grapefruit", "Mint"]
+  },
+  {
+    "id": "4",
+    "name": "Hinoki Wood",
+    "price": 38,
+    "description": "Grounding and serene. The woody, resinous aroma of Japanese cypress (hinoki) mixed with sandalwood and soft musk.",
+    "category": "Woody",
+    "image": "/images/imgi_14_649228274_17861553282609330_5769295780589176564_n.jpg",
+    "notes": ["Hinoki", "Sandalwood", "Musk"]
+  },
+  {
+    "id": "5",
+    "name": "Plum Wine (Umeshu)",
+    "price": 34,
+    "description": "Sweet, tart, and deeply comforting. Inspired by traditional Japanese plum wine, featuring notes of dark plum, apricot, and subtle spices.",
+    "category": "Fruity",
+    "image": "/images/imgi_15_649230643_17861223114609330_4904971682188619427_n.jpg",
+    "notes": ["Plum", "Apricot", "Spices"]
+  },
+  {
+    "id": "6",
+    "name": "Moonlit Bamboo",
+    "price": 36,
+    "description": "A tranquil blend of fresh bamboo stalks, watery aloe, and night-blooming jasmine. Calming and airy.",
+    "category": "Fresh",
+    "image": "/images/imgi_19_626271902_17857068447609330_7833188041594858872_n.jpg",
+    "notes": ["Bamboo", "Aloe", "Jasmine"]
+  }
+]
